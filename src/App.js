@@ -1,19 +1,21 @@
-import { useState } from 'react';
+import {  useState } from 'react';
 import { AnimatePresence} from 'framer-motion';
 
 import './App.css';
-
 
 import Home from './components/Home';
 import CommunicationAndLinks from './components/CommunicationAndLinks';
 import Stack from './components/Stack';
 import Cases from './components/Cases';
 import StudyMaterials from './components/StudyMaterials';
+import ToggleLanguage from './components/sub-component/ToggleLanguage';
+
 function App() {
   const[screen,setScreen]=useState('Home');
   
   return (
-    <div className={`App relative ${screen === 'Home' ? 'App_home_background' : 'App_other_background'} `} >
+    <div className='App relative App_home_background p-[10px]'>
+          <ToggleLanguage/>
           <AnimatePresence initial={false}>
             {screen === 'Home' && <Home setScreen={setScreen} key='Home'/> }
             {screen === 'Stack' && <Stack key='Stack' setScreen={setScreen}/>}      
